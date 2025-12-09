@@ -1,0 +1,211 @@
+/* Cold War Season 1 — Warzone theme
+   Autor: ChatGPT (exemplo). Substitua URL_DA_TEXTURE / URL_DO_LOGO conforme quiser.
+   Use via BetterDiscord (.theme.css) ou Stylus (site rule: discord.com)
+*/
+
+/* ---------- VARIÁVEIS (personalize aqui) ---------- */
+:root {
+  --cw-bg-1: #0f1214;     /* fundo principal */
+  --cw-bg-2: #111517;     /* fundo secundário panels */
+  --cw-olive: #5d6b50;    /* verde-oliva */
+  --cw-olive-2: #4e5a40;
+  --cw-orange: #e07a2b;   /* laranja quente */
+  --cw-accent: #9fb57e;   /* verde claro para highlights */
+  --cw-metal: #8b8f92;    /* metal/grey */
+  --cw-text: #dfe6e3;     /* texto claro */
+  --cw-muted: #99a09a;    /* texto secundario */
+  --cw-glow: 0 6px 20px rgba(224,122,43,0.12); /* efeito glow laranja */
+  --cw-texture: url("URL_DA_TEXTURE"); /* pequena textura metálica/grain */
+  --cw-logo: url("URL_DO_LOGO"); /* opcional: logo HUD */
+  --cw-radius: 10px;
+}
+
+/* ---------- Background geral (HUD style) ---------- */
+body, #app-mount, .app-2rEoOp {
+  background-color: var(--cw-bg-1) !important;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55)), var(--cw-texture);
+  background-size: cover, 600px 600px;
+  color: var(--cw-text) !important;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Add subtle vignette */
+#app-mount::before{
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.65) 70%);
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* ---------- Server list (esquerda) ---------- */
+.guildsWrapper-3SDxdl, .guilds-2Iu9ZV {
+  background: linear-gradient(180deg, rgba(15,18,20,0.85), rgba(15,18,20,0.7));
+  border-right: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(4px);
+}
+
+/* server badge highlight */
+.guild-2Jp3hA .wrapper-3t6Vq0, .moreGuilds-3R0Yf2 {
+  box-shadow: var(--cw-glow);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ---------- Barra lateral de canais / usuários ---------- */
+.sidebar-2K8pFh {
+  background: linear-gradient(180deg, rgba(17,21,23,0.6), rgba(12,13,14,0.6));
+  border-right: 1px solid rgba(0,0,0,0.4);
+}
+
+/* channel headers */
+.channelTextArea-1Vg3lP, .title-29uC1r {
+  color: var(--cw-text) !important;
+  text-shadow: 0 1px rgba(0,0,0,0.6);
+}
+
+/* ---------- Main chat area ---------- */
+.content-3zV7R6 {
+  background: linear-gradient(180deg, rgba(10,11,12,0.2), rgba(8,9,10,0.25));
+  padding: 20px;
+  border-radius: var(--cw-radius);
+  margin: 20px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* message bubbles */
+.message-2qnXI6, .message-3amW1b {
+  background: linear-gradient(180deg, rgba(18,20,21,0.6), rgba(12,13,14,0.6));
+  border: 1px solid rgba(90,90,90,0.06);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+
+/* author name and timestamps */
+.header-23xsNx, .username-1A8OIy {
+  color: var(--cw-accent) !important;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.timestamp-3lvdEx, .time-3XzG_A { 
+  color: var(--cw-muted) !important;
+}
+
+/* code blocks / embeds with metallic frame */
+.embedWrapper-3XvssM, .codeBlock-1pW1OJ {
+  border-left: 3px solid var(--cw-olive);
+  background: linear-gradient(180deg, rgba(10,12,10,0.35), rgba(14,16,13,0.35));
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* ---------- Buttons e controles (laranja de destaque) ---------- */
+.button-38aScr, .button-1bOSkb {
+  background: linear-gradient(180deg, rgba(224,122,43,0.95), rgba(160,80,20,0.9));
+  color: #0b0b0b !important;
+  box-shadow: 0 6px 18px rgba(224,122,43,0.12);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.25);
+}
+
+/* hover states */
+.button-38aScr:hover, .button-1bOSkb:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* ---------- Search / input fields ---------- */
+.inputDefault-3FGxgL, .textArea-12jD-V {
+  background: linear-gradient(180deg, rgba(8,9,10,0.35), rgba(20,22,19,0.15));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--cw-text);
+}
+
+/* placeholder color */
+.inputDefault-3FGxgL::placeholder, .textArea-12jD-V::placeholder {
+  color: rgba(223,230,227,0.42);
+}
+
+/* ---------- Scrollbars (estilizadas) ---------- */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--cw-olive), var(--cw-olive-2));
+  border-radius: 12px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ---------- Voice / Member list ---------- */
+.membersWrap-2h-GB4, .member-2_YxUe {
+  background: linear-gradient(180deg, rgba(11,13,11,0.25), rgba(16,18,15,0.15));
+}
+
+/* online dot */
+.avatarOnlineIndicator-1B8noH {
+  box-shadow: 0 0 6px rgba(159,181,126,0.12);
+  background: var(--cw-accent) !important;
+  border: 1px solid rgba(0,0,0,0.4);
+}
+
+/* ---------- Server / Channel heading HUD ---------- */
+.channelName-2YrOjO, .title-29uC1r {
+  background: linear-gradient(90deg, rgba(0,0,0,0.15), rgba(224,122,43,0.03));
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(224,122,43,0.06);
+  display: inline-block;
+}
+
+/* small HUD logo on top-right */
+.app-2rEoOp::after {
+  content: "";
+  position: fixed;
+  right: 20px;
+  top: 18px;
+  width: 84px;
+  height: 28px;
+  background-image: var(--cw-logo);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  z-index: 9999;
+}
+
+/* ---------- Glitch / scanline effect (subtil) ---------- */
+@keyframes cw-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: -200px 200px; }
+}
+.message-2qnXI6::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(transparent 60%, rgba(255,255,255,0.02) 61%, transparent 62%);
+  pointer-events: none;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+  animation: cw-scan 8s linear infinite;
+  border-radius: 12px;
+}
+
+/* ---------- Tiny UI polish: separators, muted text ---------- */
+.separator-2P1M5T { border-color: rgba(255,255,255,0.03) !important; }
+.muted-2YBWvY, .discriminator-3gr3KJ { color: var(--cw-muted) !important; }
+
+/* ---------- Responsividade: remover bg logo em mobile ---------- */
+@media (max-width: 900px) {
+  .app-2rEoOp::after { display: none; }
+}
+
+/* ---------- Fim do tema - dicas:
+   - Troque URL_DA_TEXTURE por uma textura sutil (grain/metal). Ex: small noise png.
+   - Troque URL_DO_LOGO por um PNG com logo estilo HUD (opcional).
+   - Ajuste cores nas variáveis no topo.
+*/
